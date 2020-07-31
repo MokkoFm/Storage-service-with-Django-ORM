@@ -14,10 +14,10 @@ def passcard_info_view(request, passcode):
             entered_at = visit.entered_at
             duration = visit.leaved_at - visit.entered_at
             is_long_visit = visit.is_visit_long
-            keys = dict.fromkeys(['entered_at', 'duration', 'is_strange'])
-            vals = [entered_at, duration, is_long_visit]
-            zipped = dict(zip(keys, vals))
-            all_visits.append(zipped)
+            titles = dict.fromkeys(['entered_at', 'duration', 'is_strange'])
+            visits_info = [entered_at, duration, is_long_visit]
+            info_view = dict(zip(titles, visits_info))
+            all_visits.append(info_view)
 
     this_passcard_visits = all_visits
 
