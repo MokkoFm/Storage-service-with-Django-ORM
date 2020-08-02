@@ -27,19 +27,19 @@ class Visit(models.Model):
             leaved= "leaved at " + str(self.leaved_at) if self.leaved_at else "not leaved"
         )
     
-    def get_duration(visit):
-        delta = localtime() - visit.entered_at
+    def get_duration(self):
+        delta = localtime() - self.entered_at
         seconds = delta.total_seconds()
         hours = seconds // 3600
         minutes = (seconds % 3600) // 60
         duration = '{} hours {} minutes'.format(int(hours), int(minutes))
         return duration
     
-    def is_visit_long(visit):
+    def is_strange(self):
         limit_for_minutes = 60
-        delta = visit.leaved_at - visit.entered_at
+        delta = self.leaved_at - self.entered_at
         seconds = delta.total_seconds()
         minutes = (seconds % 3600) // 60
 
-        is_dangerous = minutes > limit_for_minutes
-        return is_dangerous
+        is_strange = minutes > limit_for_minutes
+        return is_strange

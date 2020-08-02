@@ -10,10 +10,9 @@ def passcard_info_view(request, passcode):
     all_visits = []
     for visit in visits_by_passcard:
         if visit.leaved_at:
-            passcard = visit.passcard
             entered_at = visit.entered_at
             duration = visit.leaved_at - visit.entered_at
-            is_long_visit = visit.is_visit_long
+            is_long_visit = visit.is_strange()
             titles = dict.fromkeys(['entered_at', 'duration', 'is_strange'])
             visits_info = [entered_at, duration, is_long_visit]
             info_view = dict(zip(titles, visits_info))

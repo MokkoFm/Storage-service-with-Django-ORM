@@ -13,7 +13,7 @@ def storage_information_view(request):
         for visit in visits:
             passcard = visit.passcard
             entered_at = visit.entered_at
-            duration = visit.get_duration
+            duration = visit.get_duration()
 
             if visit.entered_at and not visit.leaved_at:
                 who_entered = passcard.owner_name
