@@ -40,6 +40,7 @@ class Visit(models.Model):
         delta = self.leaved_at - self.entered_at
         seconds = delta.total_seconds()
         minutes = (seconds % 3600) // 60
+        hours = seconds // 3600
 
-        is_strange = minutes > limit_for_minutes
+        is_strange = minutes > limit_for_minutes or hours >= 1
         return is_strange
