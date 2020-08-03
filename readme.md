@@ -11,8 +11,17 @@ $ pip install -r requirements.txt
 ```
 * How to start security service
 ```sh
-python main.py
+python manage.py runserver
 ```
+After that you can go by link 127.0.0.1:8000, and you will see service in your browser.
+
+### Environment variables  
+Some part of settings is from environment variables. You should make file `.env` near `manage.py` and write there: `VARIABLE=value`.  
+Variables:  
+- `DEBUG` - debug-mode. Put `True` to see debug information in error case. Turn off with value `False`.  
+- `SECRET_KEY` - secret key of project. For example: `blablabla`.  
+- `USER` - write your login.  
+- `PASSWORD` - write your password.  
 
 ### Purpose
 
