@@ -24,6 +24,8 @@ Variables:
 - `PASSWORD` - write your password.  
 - `HOST` - write host of your database.  
 - `NAME` - write name of your database.  
+- `ENGINE` - write engine of your database.  
+- `PORT` - write port of your database.  
 
 ### Purpose
 
