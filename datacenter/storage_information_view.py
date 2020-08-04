@@ -6,26 +6,21 @@ import datetime
 
 
 def storage_information_view(request):
-    passcards = Passcard.objects.all()
     visits = Visit.objects.all()
+    active_visits = []
 
-    for passcard in passcards:
-        for visit in visits:
+    for visit in visits:
+        if visit.entered_at and not visit.leaved_at:
             passcard = visit.passcard
+            who_entered = passcard.owner_name
             entered_at = visit.entered_at
             duration = visit.get_duration()
+            titles = dict.fromkeys(['who_entered', 'entered_at', 'duration'])
+            visit_info = [who_entered, entered_at, duration]
+            info_view = dict(zip(titles, visit_info))
+            active_visits.append(info_view)
 
-            if visit.entered_at and not visit.leaved_at:
-                who_entered = passcard.owner_name
-            
-
-    non_closed_visits = [
-        {
-            "who_entered": who_entered,
-            "entered_at": entered_at,
-            "duration": duration, 
-        }
-    ]
+    non_closed_visits = active_visits
     context = {
         "non_closed_visits": non_closed_visits,
     }
