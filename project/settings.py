@@ -5,9 +5,9 @@ load_dotenv()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'checkpoint.devman.org',
+        'HOST': os.getenv("HOST"),
         'PORT': '5434',
-        'NAME': 'checkpoint',
+        'NAME': os.getenv("NAME"),
         'USER': os.getenv("USER"),
         'PASSWORD': os.getenv("PASSWORD"),
     }

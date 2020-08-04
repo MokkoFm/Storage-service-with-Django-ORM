@@ -22,6 +22,8 @@ Variables:
 - `SECRET_KEY` - secret key of project. For example: `blablabla`.  
 - `USER` - write your login.  
 - `PASSWORD` - write your password.  
+- `HOST` - write host of your database.  
+- `NAME` - write name of your database.  
 
 ### Purpose
 
